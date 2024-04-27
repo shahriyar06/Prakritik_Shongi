@@ -23,8 +23,9 @@ const Navbar = () => {
 
     const Navbar = <>
         <li><NavLink to='/'>Home</NavLink></li>
+        <li><NavLink to='/mycrafts'>My Craft</NavLink></li>
         {
-            // user && <li><NavLink to='/profile'>Update Profile</NavLink></li>
+            user && <li><NavLink to='/addcraft'>Add Craft</NavLink></li>
         }
     </>
 
@@ -82,7 +83,7 @@ const Navbar = () => {
                                             <BsPerson className="text-3xl text-[#FFFFFF]" />
                                         </div>
                                     </summary>
-                                    <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-32 lg:text-lg absolute z-10">
+                                    <ul className="p-2 shadow menu dropdown-content bg-base-100 rounded-box w-32 lg:text-lg absolute z-10">
                                         <li><Link to='/login' className=" hover:text-[#f05431da]">Log In</Link></li>
                                         <li><Link to='/register' className="hover:text-[#f05431da]">Register</Link></li>
                                     </ul>
