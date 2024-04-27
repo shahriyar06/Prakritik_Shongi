@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Page/FirebaseProvider/FirebaseProvider";
+import { BsPerson } from "react-icons/bs";
 
 
 const Navbar = () => {
@@ -39,7 +40,7 @@ const Navbar = () => {
                             {Navbar}
                         </ul>
                     </div>
-                    <a className="lg:text-4xl font-extrabold">Prakritik Shongi</a>
+                    <a className="lg:text-4xl text-lg font-extrabold">Prakritik Shongi</a>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1 text-lg">
@@ -49,17 +50,48 @@ const Navbar = () => {
                 <div className="navbar-end">
                     {
                         user ?
-                            <div className="flex gap-5 items-center" >
-                                <div className="tooltip" data-tip={user.displayName}>
-                                    <img className="w-10 h-10 rounded-full" src={user?.photoURL || "https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"} />
-                                </div>
-                                <button onClick={() => handlesociallogout(signout)}><Link className="btn btn-outline text-[#4ade80] hover:text-[#FFFFFF] hover:bg-[#4ade80] hover:border-[#4ade80] lg:text-lg mr-5">Log Out</Link></button></div>
-                                // <ToastContainer /> 
+                            <div>
+                                <details className="dropdown dropdown-end">
+                                    <summary className="m-1 btn bg-transparent border-transparent hover:bg-transparent hover:border-transparent">
+                                        <div className="w-10 rounded-full tooltip" data-tip={user.displayName}>
+                                            <img className="w-10 h-10 rounded-full" src={user?.photoURL || "https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"} />
+                                        </div>
+                                    </summary>
+                                    <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-32  md:text-lg">
+                                        <li className="hover:text-[#f05431da]"><Link>Profile</Link></li>
+                                        <li className="hover:text-[#f05431da]" onClick={() => handlesociallogout(signout)}><Link>Logout</Link></li>
+                                    </ul>
+                                </details>
+                                {/* <div className="dropdown dropdown-end">
+                                    <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+                                        <div className="tooltip w-10 rounded-full" data-tip={user.displayName}>
+                                            <img className="w-10 h-10 rounded-full" src={user?.photoURL || "https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"} />
+                                        </div>
+                                    </div>
+                                    <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-32">
+                                        <li><Link>Profile</Link></li>
+                                        <li onClick={() => handlesociallogout(signout)}><Link>Logout</Link></li>
+                                    </ul>
+                                </div> */}
+                            </div>
                             :
                             <div>
-                                <Link to='/login' className="btn btn-outline text-[#4ade80] hover:text-[#FFFFFF] hover:bg-[#4ade80] hover:border-[#4ade80] lg:text-lg mr-5">Log In</Link>
-                                <Link to='/register' className="btn btn-outline text-[#4ade80] hover:text-[#FFFFFF] hover:bg-[#4ade80] hover:border-[#4ade80] text-lg">Register</Link>
+                                <details className="dropdown">
+                                    <summary className="m-1 btn bg-transparent border-transparent hover:bg-transparent hover:border-transparent">
+                                        <div className="p-2 bg-[#f05431da] border-2 rounded-full tooltip" data-tip="Login">
+                                            <BsPerson className="text-3xl text-[#FFFFFF]" />
+                                        </div>
+                                    </summary>
+                                    <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-32 lg:text-lg">
+                                        <li><Link to='/login' className=" hover:text-[#f05431da]">Log In</Link></li>
+                                        <li><Link to='/register' className="hover:text-[#f05431da]">Register</Link></li>
+                                    </ul>
+                                </details>
                             </div>
+                        // <div>
+                        //     <Link to='/login' className="btn btn-outline text-[#4ade80] hover:text-[#FFFFFF] hover:bg-[#4ade80] hover:border-[#4ade80] lg:text-lg mr-5">Log In</Link>
+                        //     <Link to='/register' className="btn btn-outline text-[#4ade80] hover:text-[#FFFFFF] hover:bg-[#4ade80] hover:border-[#4ade80] text-lg">Register</Link>
+                        // </div>
                     }
                 </div>
             </div>

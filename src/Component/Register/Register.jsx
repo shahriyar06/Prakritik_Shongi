@@ -52,7 +52,7 @@ const Register = () => {
     }
 
     return (
-        <div className="mb-10">
+        <div className="mb-10 mx-2 md:mx-0">
             <Helmet>
                 <title>prakritik-shongis-register</title>
             </Helmet>
@@ -92,7 +92,7 @@ const Register = () => {
                                 {errors.password && <span className="text-red-600 text-sm">Password is required</span>}
                                 <h1 className="" onClick={() => setshowpassword(!showpassword)}>
                                     {
-                                        showpassword ? <FaEyeSlash className="relative left-96 bottom-8" /> : <FaEye className="relative left-96 bottom-8" />
+                                        showpassword ? <FaEyeSlash className="relative left-64 md:left-96 bottom-8" /> : <FaEye className="relative left-64 md:left-96 bottom-8" />
                                     }
                                 </h1>
                                 <div>
