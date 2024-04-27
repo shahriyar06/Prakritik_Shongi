@@ -35,11 +35,12 @@ const Navbar = () => {
                 </div>
                 <div className="navbar-end">
                     {
-                        user ? <div className="flex gap-5 items-center" >
-                            <div  className="tooltip" data-tip={user.displayName}>
-                                <img className="w-10 h-10 rounded-full" src={user?.photoURL || "https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"} />
-                            </div>
-                            <button onClick={() => handlesociallogout(signout)}><Link className="btn btn-outline text-[#4ade80] hover:text-[#FFFFFF] hover:bg-[#4ade80] hover:border-[#4ade80] lg:text-lg mr-5">Log Out</Link></button><ToastContainer /> </div>
+                        user ?
+                            <div className="flex gap-5 items-center" >
+                                <div className="tooltip" data-tip={user.displayName}>
+                                    <img className="w-10 h-10 rounded-full" src={user?.photoURL || "https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"} />
+                                </div>
+                                <button onClick={() => handlesociallogout(signout)}><Link className="btn btn-outline text-[#4ade80] hover:text-[#FFFFFF] hover:bg-[#4ade80] hover:border-[#4ade80] lg:text-lg mr-5">Log Out</Link></button><ToastContainer /> </div>
                             :
                             <div>
                                 <Link to='/login' className="btn btn-outline text-[#4ade80] hover:text-[#FFFFFF] hover:bg-[#4ade80] hover:border-[#4ade80] lg:text-lg mr-5">Log In</Link>
