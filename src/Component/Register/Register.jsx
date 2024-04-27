@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import { Helmet } from "react-helmet-async";
 // import { ToastContainer, toast } from 'react-toastify';
 import { FaEyeSlash, FaEye } from "react-icons/fa";
+import { AuthContext } from "../../Page/FirebaseProvider/FirebaseProvider";
 
 const Register = () => {
 
@@ -12,11 +13,15 @@ const Register = () => {
     const [showpassword, setshowpassword] = useState(false);
 
     const { register, handleSubmit, formState: { errors } } = useForm();
+    const { signup, updateuserprofile } = useContext(AuthContext);
+    const navigate = useNavigate()
+    const location = useLocation()
+    const go = location?.state || '/';
 
 
     const onSubmit = (data) => {
-
-        const { email, password, name, photo, phone } = data
+        const { email, password, name, photo } = data; 
+        console.log(email, password, name, photo)
         setrestriction('')
         if (password.length < 6) {
             setrestriction('At least 6 characters')
@@ -34,12 +39,13 @@ const Register = () => {
 
         signup(email, password)
             .then(() => {
-                toast("Success register!");
-                updateuserprofile(name, photo, phone)
+                // toast("Success register!");
+                updateuserprofile(name, photo)
                     .then(() => {
-                        navigate(from)
+                        navigate(go)
 
-                        data.target.reset();
+                        // data.target.reset();
+                        // form.reset();
                     });
 
             });
@@ -48,7 +54,7 @@ const Register = () => {
     return (
         <div className="mb-10">
             <Helmet>
-                <title>Griho-abhijan-register</title>
+                <title>prakritik-shongis-register</title>
             </Helmet>
             <div className="hero min-h-screen ">
                 <div className="card shrink-0 w-full max-w-lg shadow-2xl bg-base-100">

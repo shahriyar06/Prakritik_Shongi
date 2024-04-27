@@ -1,11 +1,24 @@
 import { useContext } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Page/FirebaseProvider/FirebaseProvider";
 
 
 const Navbar = () => {
 
-    const { user } = useContext(AuthContext);
+    const { signout, user } = useContext(AuthContext);
+    const navigate = useNavigate()
+    const location = useLocation()
+    const from = location?.state || '/'
+
+    const handlesociallogout = logoutProvider => {
+        logoutProvider()
+            .then(result => {
+                // toast("Success register!");
+                if (result.user) {
+                    navigate(from)
+                }
+            })
+    }
 
     const Navbar = <>
         <li><NavLink to='/'>Home</NavLink></li>
@@ -40,7 +53,8 @@ const Navbar = () => {
                                 <div className="tooltip" data-tip={user.displayName}>
                                     <img className="w-10 h-10 rounded-full" src={user?.photoURL || "https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"} />
                                 </div>
-                                <button onClick={() => handlesociallogout(signout)}><Link className="btn btn-outline text-[#4ade80] hover:text-[#FFFFFF] hover:bg-[#4ade80] hover:border-[#4ade80] lg:text-lg mr-5">Log Out</Link></button><ToastContainer /> </div>
+                                <button onClick={() => handlesociallogout(signout)}><Link className="btn btn-outline text-[#4ade80] hover:text-[#FFFFFF] hover:bg-[#4ade80] hover:border-[#4ade80] lg:text-lg mr-5">Log Out</Link></button></div>
+                                // <ToastContainer /> 
                             :
                             <div>
                                 <Link to='/login' className="btn btn-outline text-[#4ade80] hover:text-[#FFFFFF] hover:bg-[#4ade80] hover:border-[#4ade80] lg:text-lg mr-5">Log In</Link>
