@@ -61,7 +61,7 @@ const Footer = () => {
                 <div>
                     <hr className="border-[#888]" />
                     <div className="lg:flex justify-center gap-1 p-6">
-                        <p className="flex items-center gap-1 text-[#bece8861] justify-center">Copyright <MdOutlineCopyright></MdOutlineCopyright> 2024 Griho Abhijan.</p>
+                        <p className="flex items-center gap-1 text-[#bece8861] justify-center">Copyright <MdOutlineCopyright></MdOutlineCopyright> 2024 Prakritik Shongi.</p>
                         <p className="text-[#bece8861] text-center">All Rights Reserved. Made by Shahriyar.</p>
                     </div>
                 </div>

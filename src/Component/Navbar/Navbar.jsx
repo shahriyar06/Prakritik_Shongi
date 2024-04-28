@@ -22,10 +22,11 @@ const Navbar = () => {
     }
 
     const Navbar = <>
-        <li><NavLink to='/'>Home</NavLink></li>
-        <li><NavLink to='/mycrafts'>My Craft</NavLink></li>
+        <li><NavLink to='/' className={({ isActive }) => isActive ? "border-[#ad9773] border text-[#ad9773]" : "text-[#131313]"}>Home</NavLink></li>
+        <li><NavLink to='/allcrafts' className={({ isActive }) => isActive ? "border-[#ad9773] border text-[#ad9773]" : "text-[#131313]"}>All Craft</NavLink></li>
+        <li><NavLink to='/mycrafts' className={({ isActive }) => isActive ? "border-[#ad9773] border text-[#ad9773]" : "text-[#131313]"}>My Craft</NavLink></li>
         {
-            user && <li><NavLink to='/addcraft'>Add Craft</NavLink></li>
+            user && <li><NavLink to='/addcraft' className={({ isActive }) => isActive ? "border-[#ad9773] border text-[#ad9773]" : "text-[#131313]"}>Add Craft</NavLink></li>
         }
     </>
 
