@@ -28,7 +28,7 @@ const Footer = () => {
                         </div>
                         <div className="flex items-center gap-2 text-lg mt-5">
                             <MdOutlineMailOutline className="text-[#b19777] text-lg"></MdOutlineMailOutline>
-                            <h2 className="text-[#888] items-center flex">srakritikshongi@gmail.com</h2>
+                            <h2 className="text-[#888] items-center flex">prakritikshongi@gmail.com</h2>
                         </div>
                     </div>
                     <div className="mb-8 lg:col-span-2">
