@@ -1,6 +1,49 @@
-
+import Swal from 'sweetalert2'
 
 const AddCraft = () => {
+
+    const handlesubmitcraft = event =>{
+        event.preventDefault();
+
+        const form = event.target;
+        const name = form.name.value;
+        const email = form.email.value;
+        const title = form.title.value;
+        const subcategory = form.subcategory.value;
+        const imageurl = form.imageurl.value;
+        const description = form.description.value;
+        const price = form.price.value;
+        const rating = form.rating.value;
+        const customization = form.customization.value;
+        const stockStatus = form.stockStatus.value;
+        const processingtime = form.processingtime.value;
+
+        const newcraft ={ name, email, title, subcategory, imageurl, description, price, rating, customization, stockStatus, processingtime}
+        
+
+        // set data to server
+        fetch('http://localhost:5000/craftlist',{
+            method: 'POST',
+            headers: {
+                'content-type' : 'application/json'
+            },
+            body: JSON.stringify(newcraft)
+        })
+        .then(res=> res.json())
+        .then(data=>{
+            console.log(data);
+            if(data.insertedId){
+                Swal.fire({
+                    title: 'Success!',
+                    text: 'Craft Item Added Successfully',
+                    icon: 'success',
+                    confirmButtonText: 'Done'
+                  })
+            }
+        })
+
+    }
+
     return (
         <div className="my-6 lg:w-8/12 w-11/12 mx-auto">
             <div>
@@ -8,20 +51,20 @@ const AddCraft = () => {
                 <p className="text-center my-5 text-xl">Craft your legacy in our Collection! Introduce your artisanal marvels.Describe your masterpiece and add images to exhibit your craftsmanship to the world.</p>
             </div>
             <div>
-                <form className="">
+                <form onSubmit={handlesubmitcraft} className="">
                     {/* Email and name */}
                     <div className="md:flex gap-6 justify-between">
                         <div className="w-full">
                             <label className="label">
                                 <span className="label-text text-lg font-medium">Name</span>
                             </label>
-                            <input type="text" name="username" placeholder="Name" className="input input-bordered w-full" required />
+                            <input type="text" name="name" placeholder="Name" className="input input-bordered w-full" required />
                         </div>
                         <div className="w-full">
                             <label className="label">
                                 <span className="label-text text-lg font-medium">Email</span>
                             </label>
-                            <input type="text" name="useremail" placeholder="Email" className="input input-bordered w-full" required />
+                            <input type="text" name="email" placeholder="Email" className="input input-bordered w-full" required />
                         </div>
                     </div>
                     {/* Title and Subcategory */}
@@ -37,7 +80,7 @@ const AddCraft = () => {
                                 <span className="label-text text-lg font-medium">Subcategory</span>
                             </label>
                             <select type="dropdown" name='subcategory' className="px-3 w-full border-2 rounded-lg h-12" required >
-                                <option value="None">Select Subcategory</option>
+                                <option value="Select Subcategory">Select Subcategory</option>
                                 <option value="Wooden Furniture & Sculptures">Wooden Furniture & Sculptures</option>
                                 <option value="Wooden Home Decor">Wooden Home Decor</option>
                                 <option value="Wooden Utensils and Kitchenware">Wooden Utensils and Kitchenware</option>
@@ -83,9 +126,9 @@ const AddCraft = () => {
                                 <span className="label-text text-lg font-medium">Customization</span>
                             </label>
                             <select type="dropdown" name='customization' className="p-3 w-full border-2 rounded-lg h-12" required >
-                                <option value="None">Select Customization</option>
-                                <option value="Wooden Furniture & Sculptures">Yes</option>
-                                <option value="Wooden Home Decor">No</option>
+                                <option value="Select Customization">Select Customization</option>
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
 
                             </select>
                         </div>
@@ -95,8 +138,8 @@ const AddCraft = () => {
                             </label>
                             <select type="dropdown" name='stockStatus' className="p-3 w-full border-2 rounded-lg h-12" required >
                                 <option value="None">Select Stock Status</option>
-                                <option value="Wooden Furniture & Sculptures">In stock</option>
-                                <option value="Wooden Home Decor">Made to Order</option>
+                                <option value="In stock">In stock</option>
+                                <option value="Made to Order">Made to Order</option>
                             </select>
                         </div>
                     </div>
