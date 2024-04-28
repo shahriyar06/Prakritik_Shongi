@@ -1,14 +1,12 @@
 import { Helmet } from "react-helmet-async";
-import { Link, useLoaderData, useLocation, useNavigate, useParams } from "react-router-dom";
+import { Link, useLoaderData, useParams } from "react-router-dom";
 import { IoStarHalfSharp } from "react-icons/io5";
 
 const Craftdetails = () => {
     const crafts = useLoaderData();
     const { id } = useParams();
     const craft = crafts?.find(craftlist => craftlist._id === id);
-    const navigate = useNavigate()
-    const location = useLocation()
-    const from = location?.state || '/'
+    
     return (
         <div>
             <Helmet>
@@ -53,7 +51,7 @@ const Craftdetails = () => {
                                     </div>
                                 </div>
                                 <div className="card-actions justify-end">
-                                    <Link to={navigate(from)} className="btn bg-[#ddc9a7] text-lg">Go Back</Link>
+                                    <Link to='/' className="btn bg-[#ddc9a7] text-lg">Go Back</Link>
                                 </div>
                             </div>
                         </div>

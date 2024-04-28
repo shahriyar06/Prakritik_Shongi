@@ -1,11 +1,14 @@
 import { Link, useLoaderData } from "react-router-dom";
-
+import { Helmet } from "react-helmet-async";
 
 const AllCrafts = () => {
     const loadallcrafts = useLoaderData()
 
     return (
         <div className="m-10">
+            <Helmet>
+                <title>prakritik-shongi-allcraft</title>
+            </Helmet>
             <div>
 
             </div>
@@ -32,7 +35,7 @@ const AllCrafts = () => {
                                 <td>{allCrafts.subcategory}</td>
                                 <td>{allCrafts.price}</td>
                                 <td>{allCrafts.stockStatus}</td>
-                                <td><Link to={`/craftdetails/${allCrafts._id}`} className="btn lg:text-lg bg-[#cec1ab] text-[#FFFFFF]">View Details</Link></td>
+                                <td><Link to={`/craftdetails/${allCrafts._id}`} className="btn lg:text-lg bg-[#cec1ab] text-[#FFFFFF] hover:text-gray-700">View Details</Link></td>
                             </tr>)
                         }
                     </tbody>
