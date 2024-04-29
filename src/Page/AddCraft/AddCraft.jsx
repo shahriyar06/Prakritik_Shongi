@@ -1,6 +1,10 @@
+import { useContext } from 'react';
 import Swal from 'sweetalert2'
+import { AuthContext } from '../FirebaseProvider/FirebaseProvider';
 
 const AddCraft = () => {
+    
+    const { user } = useContext(AuthContext)
 
     const handlesubmitcraft = event =>{
         event.preventDefault();
@@ -58,13 +62,13 @@ const AddCraft = () => {
                             <label className="label">
                                 <span className="label-text text-lg font-medium">Name</span>
                             </label>
-                            <input type="text" name="name" placeholder="Name" className="input input-bordered w-full" required />
+                            <input type="text" name="name" defaultValue={user.displayName} placeholder={user.displayName} className="input input-bordered w-full" disabled />
                         </div>
                         <div className="w-full">
                             <label className="label">
                                 <span className="label-text text-lg font-medium">Email</span>
                             </label>
-                            <input type="text" name="email" placeholder="Email" className="input input-bordered w-full" required />
+                            <input type="text" name="email" defaultValue={user.email} placeholder={user.email} className="input input-bordered w-full" disabled />
                         </div>
                     </div>
                     {/* Title and Subcategory */}
