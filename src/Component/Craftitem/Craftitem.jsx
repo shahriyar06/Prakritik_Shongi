@@ -1,18 +1,25 @@
 import { useEffect, useState } from "react";
 import Craftiteminfo from "../Craftiteminfo/Craftiteminfo";
+import { Link } from "react-router-dom";
 
 
 const Craftitem = () => {
 
     const [craftitem, setcraftitem] = useState([]);
+    const [showcraft, setshowcraft] = useState(false);
 
     useEffect(() => {
-        fetch('http://localhost:5000/craftlist')
+        fetch('https://prakritik-shongi-server.vercel.app/craftlist')
             .then(res => res.json())
-            .then(data => setcraftitem(data));
+            .then(data => {
+                setcraftitem(data)
+                setshowcraft(data.length > 8);
+            });
     }
         , [])
 
+
+    const displaycraftitem = craftitem.slice(0, 8)
 
     return (
         <div className="mb-10">
@@ -21,8 +28,15 @@ const Craftitem = () => {
             </div>
             <div className="w-11/12 mx-auto grid grid-cols-2 gap-4">
                 {
-                    craftitem.map(craft => <Craftiteminfo  craft={craft} key={craft._id}></Craftiteminfo>)
+                    displaycraftitem.map(craft => <Craftiteminfo craft={craft} key={craft._id}></Craftiteminfo>)
                 }
+            </div>
+            <div className="text-center mt-6">
+                {showcraft && ( 
+                    <button className="btn text-lg bg-[#cec1ab] text-[#FFFFFF] hover:text-gray-700">
+                        <Link to='/allcrafts'>See All Crafts</Link>
+                    </button>
+                )}
             </div>
         </div>
     );

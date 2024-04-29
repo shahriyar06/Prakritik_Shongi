@@ -22,7 +22,7 @@ const AddCraft = () => {
         
 
         // set data to server
-        fetch('http://localhost:5000/craftlist',{
+        fetch('https://prakritik-shongi-server.vercel.app/craftlist',{
             method: 'POST',
             headers: {
                 'content-type' : 'application/json'

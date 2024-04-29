@@ -17,7 +17,7 @@ const Craftiteminfo = ({ craft }) => {
                             <h2 className="flex items-center gap-1">{craft.rating} <IoStarHalfSharp className="text-[#d3a873] text-xl" /></h2>
                         </div>
                         <div className="card-actions justify-end">
-                            <Link to={`/craftdetails/${craft._id}`} className="btn text-lg bg-[#cec1ab] text-[#FFFFFF] hover:text-gray-700">View Details</Link>
+                            <Link to={`/craftdetails/${craft._id}`} className="btn text-lg bg-[#cec1ab] text-[#FFFFFF] hover:text-gray-700" >View Details</Link>
                         </div>
                     </div>
                 </div>
