@@ -17,7 +17,7 @@ const MyCraftinfo = ({ myallcrafts }) => {
             confirmButtonColor: "#3085d6",
             cancelButtonColor: "#d33",
             confirmButtonText: "Yes, delete it!"
-          }).then((result) => {
+        }).then((result) => {
             if (result.isConfirmed) {
                 fetch(`http://localhost:5000/craftlist/${_id}`, {
                     method: 'DELETE'
@@ -29,11 +29,11 @@ const MyCraftinfo = ({ myallcrafts }) => {
                                 title: "Deleted!",
                                 text: "Your file has been deleted.",
                                 icon: "success"
-                              });
+                            });
                         }
                     })
             }
-          });
+        });
     }
 
     return (
@@ -52,7 +52,7 @@ const MyCraftinfo = ({ myallcrafts }) => {
                         <div className="card-actions justify-end mt-2">
                             <Link to={`/craftdetails/${myallcrafts._id}`} className="btn text-lg bg-[#cec1ab] text-[#FFFFFF] hover:text-gray-700">View Details</Link>
                             <div className="">
-                                <button className="btn text-xl bg-[#947351] text-[#FFFFFF] mr-2 hover:text-gray-700"><FaPen /></button>
+                                <Link to={`/mycrafts/updateinfo/${_id}`} className="btn text-xl bg-[#947351] text-[#FFFFFF] mr-2 hover:text-gray-700"><FaPen /></Link>
                                 <button onClick={() => handledelete(_id)} className="btn text-xl  bg-[#947251b6] text-[#FFFFFF] hover:text-gray-700"><RiDeleteBinFill /></button>
                             </div>
                         </div>
