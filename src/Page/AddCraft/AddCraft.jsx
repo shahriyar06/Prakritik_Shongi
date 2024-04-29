@@ -1,6 +1,7 @@
 import { useContext } from 'react';
 import Swal from 'sweetalert2'
 import { AuthContext } from '../FirebaseProvider/FirebaseProvider';
+import { Helmet } from 'react-helmet-async';
 
 const AddCraft = () => {
     
@@ -43,6 +44,7 @@ const AddCraft = () => {
                     icon: 'success',
                     confirmButtonText: 'Done'
                   })
+                  form.reset();
             }
         })
 
@@ -50,6 +52,9 @@ const AddCraft = () => {
 
     return (
         <div className="my-6 lg:w-8/12 w-11/12 mx-auto">
+            <Helmet>
+                <title>prakritik-shongi-addcraft</title>
+            </Helmet>
             <div>
                 <h1 className="text-center lg:text-5xl text-3xl font-bold text-[#a7542dc7]">Crafts Collection</h1>
                 <p className="text-center my-5 text-xl">Craft your legacy in our Collection! Introduce your artisanal marvels.Describe your masterpiece and add images to exhibit your craftsmanship to the world.</p>

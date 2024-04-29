@@ -10,6 +10,7 @@ import AddCraft from "../Page/AddCraft/AddCraft";
 import AllCrafts from "../Page/AllCrafts/AllCrafts";
 import Craftdetails from "../Page/Craftdetails/Craftdetails";
 import Updatecraftiteminfo from "../Page/Updatecraftiteminfo/Updatecraftiteminfo";
+import Profile from "../Page/Profile/Profile";
 
 
 
@@ -54,6 +55,10 @@ const router = createBrowserRouter([
           path: '/mycrafts/updateinfo/:id',
           element: <PrivateRoute><Updatecraftiteminfo></Updatecraftiteminfo></PrivateRoute>,
           loader: ({params}) => fetch(`https://prakritik-shongi-server.vercel.app/craftlist/${params.id}`)
+        },
+        {
+          path: '/profile',
+          element: <PrivateRoute><Profile></Profile></PrivateRoute>
         }
       ],
     },
