@@ -2,9 +2,40 @@ import { Link } from "react-router-dom";
 import { IoStarHalfSharp } from "react-icons/io5";
 import { RiDeleteBinFill } from "react-icons/ri";
 import { FaPen } from "react-icons/fa6";
+import Swal from "sweetalert2";
 
 
 const MyCraftinfo = ({ myallcrafts }) => {
+    const { _id } = myallcrafts;
+
+    const handledelete = (_id) => {
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+          }).then((result) => {
+            if (result.isConfirmed) {
+                fetch(`http://localhost:5000/craftlist/${_id}`, {
+                    method: 'DELETE'
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.deletedCount > 0) {
+                            Swal.fire({
+                                title: "Deleted!",
+                                text: "Your file has been deleted.",
+                                icon: "success"
+                              });
+                        }
+                    })
+            }
+          });
+    }
+
     return (
         <div>
             <div className="bg-[#efeae3] rounded-3xl w-full">
@@ -21,8 +52,8 @@ const MyCraftinfo = ({ myallcrafts }) => {
                         <div className="card-actions justify-end mt-2">
                             <Link to={`/craftdetails/${myallcrafts._id}`} className="btn text-lg bg-[#cec1ab] text-[#FFFFFF] hover:text-gray-700">View Details</Link>
                             <div className="">
-                                <Link className="btn text-xl bg-[#947351] text-[#FFFFFF] mr-2 hover:text-gray-700"><FaPen /></Link>
-                                <Link className="btn text-xl  bg-[#947251b6] text-[#FFFFFF] hover:text-gray-700"><RiDeleteBinFill /></Link>
+                                <button className="btn text-xl bg-[#947351] text-[#FFFFFF] mr-2 hover:text-gray-700"><FaPen /></button>
+                                <button onClick={() => handledelete(_id)} className="btn text-xl  bg-[#947251b6] text-[#FFFFFF] hover:text-gray-700"><RiDeleteBinFill /></button>
                             </div>
                         </div>
                     </div>
