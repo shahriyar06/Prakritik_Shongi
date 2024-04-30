@@ -1,7 +1,7 @@
 # Prakritik Shongo
 
 ## Live Links :
-- [Prakritik Shongo]('https://prakritik-shongi.web.app') 
+- [Prakritik Shongo](https://prakritik-shongi.web.app/) 
 
 ## Features and Characteristics:
 
