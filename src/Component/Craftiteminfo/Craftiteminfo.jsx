@@ -6,8 +6,8 @@ const Craftiteminfo = ({ craft }) => {
     return (
         <div className="">
             <div className="bg-[#efeae3] rounded-3xl w-full">
-                <div className="card card-side ">
-                    <figure className="pl-3"><img src={craft.imageurl} className="rounded-3xl h-56 w-72" /></figure>
+                <div className="card card-side flex flex-col md:flex-row">
+                    <figure className="md:pl-3 p-3"><img src={craft.imageurl} className="rounded-3xl  h-56 md:w-72" /></figure>
                     <div className="card-body">
                         <h2 className="text-2xl font-semibold">{craft.title}</h2>
                         <h2 className="text-lg font-medium">{craft.subcategory}</h2>

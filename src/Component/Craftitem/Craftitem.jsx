@@ -26,7 +26,7 @@ const Craftitem = () => {
             <div className="mb-5">
                 <h1 className="text-center text-5xl font-bold">Craftsmans Corner</h1>
             </div>
-            <div className="w-11/12 mx-auto grid grid-cols-2 gap-4">
+            <div className="w-11/12 mx-auto grid grid-cols-1 lg:grid-cols-2 gap-4">
                 {
                     displaycraftitem.map(craft => <Craftiteminfo craft={craft} key={craft._id}></Craftiteminfo>)
                 }
