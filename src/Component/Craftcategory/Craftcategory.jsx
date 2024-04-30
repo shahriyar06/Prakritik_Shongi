@@ -17,7 +17,7 @@ const Craftcategory = () => {
     return (
         <div className="mb-10">
             <div className="mb-5">
-                <h1 className="text-center text-5xl font-bold">Craft Categories</h1>
+                <h1 className="text-center text-3xl md:text-5xl font-bold">Craft Categories</h1>
             </div>
             <div className="w-11/12 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {
