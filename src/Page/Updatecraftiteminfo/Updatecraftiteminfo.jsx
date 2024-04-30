@@ -40,6 +40,7 @@ const Updatecraftiteminfo = () => {
                     icon: 'success',
                     confirmButtonText: 'Done'
                   })
+                  form.reset();
             }
         })
 

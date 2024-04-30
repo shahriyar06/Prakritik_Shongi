@@ -22,7 +22,7 @@ const Craftitem = () => {
     const displaycraftitem = craftitem.slice(0, 8)
 
     return (
-        <div className="mb-10">
+        <div className="mb-11">
             <div className="mb-5">
                 <h1 className="text-center text-5xl font-bold">Craftsmans Corner</h1>
             </div>

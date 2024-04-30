@@ -11,6 +11,7 @@ import AllCrafts from "../Page/AllCrafts/AllCrafts";
 import Craftdetails from "../Page/Craftdetails/Craftdetails";
 import Updatecraftiteminfo from "../Page/Updatecraftiteminfo/Updatecraftiteminfo";
 import Profile from "../Page/Profile/Profile";
+import Subcategoryitem from "../Page/Subcategoryitem/Subcategoryitem";
 
 
 
@@ -59,6 +60,11 @@ const router = createBrowserRouter([
         {
           path: '/profile',
           element: <PrivateRoute><Profile></Profile></PrivateRoute>
+        },
+        {
+          path: '/subcategoryitem',
+          element: <PrivateRoute><Subcategoryitem></Subcategoryitem></PrivateRoute>,
+          loader: () => fetch('https://prakritik-shongi-server.vercel.app/subcategorylist')
         }
       ],
     },
