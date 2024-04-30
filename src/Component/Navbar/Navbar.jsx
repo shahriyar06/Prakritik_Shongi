@@ -49,7 +49,7 @@ const Navbar = () => {
                         {Navbar}
                     </ul>
                 </div>
-                <div className="navbar-end">
+                <div className="navbar-end flex item-center">
                     <div className="ml-6">
                         <label className="swap swap-rotate">
                             {/* this hidden checkbox controls the state */}
