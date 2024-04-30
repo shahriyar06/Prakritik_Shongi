@@ -22,7 +22,7 @@ const Craftcategory = () => {
             <div className="w-11/12 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {
                     subcategory.map(subcategorys =>
-                        <Link to='/subcategoryitem' subcategorys={subcategorys} key={subcategorys._id}><div className="card rounded-3xl border-2 border-[#c2c2c2]">
+                        <Link to={`/subcategoryitem/${subcategorys._id}`} subcategorys={subcategorys} key={subcategorys._id}><div className="card rounded-3xl border-2 border-[#c2c2c2]">
                             <div className="rounded-3xl p-4 mt-4 bg-[#eff6ffb3]  w-11/12 mx-auto">
                                 <figure><img src={subcategorys.image} className="h-52 md:w-96 rounded-2xl" alt="Shoes" /></figure>
                             </div>

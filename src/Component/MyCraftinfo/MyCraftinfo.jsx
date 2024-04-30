@@ -39,8 +39,8 @@ const MyCraftinfo = ({ myallcrafts }) => {
     return (
         <div>
             <div className="bg-[#efeae3] rounded-3xl w-full">
-                <div className="card card-side ">
-                    <figure className="pl-3"><img src={myallcrafts.imageurl} className="rounded-3xl h-56 w-72" /></figure>
+                <div className="card card-side flex flex-col md:flex-row">
+                    <figure className="md:pl-3 p-3"><img src={myallcrafts.imageurl} className="rounded-3xl h-56 md:w-72" /></figure>
                     <div className="card-body">
                         <h2 className="text-2xl font-semibold">{myallcrafts.title}</h2>
                         <h2 className="text-lg font-medium">{myallcrafts.subcategory}</h2>
@@ -50,7 +50,9 @@ const MyCraftinfo = ({ myallcrafts }) => {
                             <h2 className="flex items-center gap-1">{myallcrafts.rating} <IoStarHalfSharp className="text-[#d3a873] text-xl" /></h2>
                         </div>
                         <div className="card-actions justify-end mt-2">
-                            <Link to={`/craftdetails/${myallcrafts._id}`} className="btn text-lg bg-[#cec1ab] text-[#FFFFFF] hover:text-gray-700">View Details</Link>
+                            <div>
+                                <Link to={`/craftdetails/${myallcrafts._id}`} className="btn text-lg bg-[#cec1ab] text-[#FFFFFF] hover:text-gray-700">View Details</Link>
+                            </div>
                             <div className="">
                                 <Link to={`/mycrafts/updateinfo/${_id}`} className="btn text-xl bg-[#947351] text-[#FFFFFF] mr-2 hover:text-gray-700"><FaPen /></Link>
                                 <button onClick={() => handledelete(_id)} className="btn text-xl  bg-[#947251b6] text-[#FFFFFF] hover:text-gray-700"><RiDeleteBinFill /></button>

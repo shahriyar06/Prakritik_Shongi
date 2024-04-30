@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
 
 
@@ -139,7 +139,7 @@ const Updatecraftiteminfo = () => {
                     </div>
                     {/* Button */}
                     <div className="w-full my-4">
-                        <button className="btn w-full text-lg bg-[#ded5c7] ">Update</button>
+                        <Link to='/mycrafts' className="btn w-full text-lg bg-[#ded5c7] ">Update</Link>
                     </div>
                 </form>
             </div>

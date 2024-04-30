@@ -62,9 +62,9 @@ const router = createBrowserRouter([
           element: <PrivateRoute><Profile></Profile></PrivateRoute>
         },
         {
-          path: '/subcategoryitem',
+          path: '/subcategoryitem/:id',
           element: <PrivateRoute><Subcategoryitem></Subcategoryitem></PrivateRoute>,
-          loader: () => fetch('https://prakritik-shongi-server.vercel.app/subcategorylist')
+          loader: ({params}) => fetch(`https://prakritik-shongi-server.vercel.app/subcategorylist/${params.id}`)
         }
       ],
     },
