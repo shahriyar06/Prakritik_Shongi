@@ -18,19 +18,23 @@
 - **Feedback and Confirmation:** Integrated feedback mechanisms, such as SweetAlert pop-ups, provide users with confirmation messages for actions like adding a craft item or deleting an entry, enhancing transparency and user satisfaction.
 
 
-##  Selected Category
+## Getting Started
 
-**Jute & wooden Crafts**
-B9 A10 Type-02 Requirements
+## Prerequisites
+- React 
+- React-router dom
+- Firebase Authentication
+- Node Js
+- Express Js 
+
+
+## Installation
+
+- [React-Router Dom](https://reactrouter.com/en/main/start/tutorial)
+- [Tailwind](https://tailwindcss.com/docs/guides/vite)
+- [Firebase](https://firebase.google.com/)
+- [React-icon](https://www.npmjs.com/package/react-icons)
+- [Swiper](https://swiperjs.com/get-started)
 
 
 
-
-# React + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
