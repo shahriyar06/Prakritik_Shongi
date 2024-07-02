@@ -3,10 +3,12 @@ import { IoStarHalfSharp } from "react-icons/io5";
 import { RiDeleteBinFill } from "react-icons/ri";
 import { FaPen } from "react-icons/fa6";
 import Swal from "sweetalert2";
+// import { useState } from "react";
 
 
 const MyCraftinfo = ({ myallcrafts }) => {
     const { _id } = myallcrafts;
+    // const { myallcraft ,setmyallcraft } = useState(myallcrafts)
 
     const handledelete = (_id) => {
         Swal.fire({
